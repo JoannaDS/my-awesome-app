@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Users = ({ users, loading, infos }) => {
+const Users = ({ fileteredUsers, loading, infos, users }) => {
   if (loading) {
     <h2>Loading...</h2>;
   }
