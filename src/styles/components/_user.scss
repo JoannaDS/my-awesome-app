@@ -1,0 +1,16 @@
+.card-details {
+  color: lighten($light-violet, 20%);
+  background: darken($dark-violet, 10%);
+;
+
+  p {
+    font-size: 1rem;
+  }
+}
+.card-container{
+  width:20%
+}
+
+.picture {
+  border-bottom: 1px solid turquoise;
+}

@@ -1,0 +1,12 @@
+.header{
+    background: darken($dark-violet,10%);
+    margin-bottom: $m-size;
+    padding: $l-size 0;
+    color:turquoise;
+   
+}
+
+.header__title{
+    font-size: $l-size;
+    text-transform: uppercase;
+}

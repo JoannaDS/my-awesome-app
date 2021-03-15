@@ -5,12 +5,12 @@ const Users = ({ users, loading, infos }) => {
     <h2>Loading...</h2>;
   }
   return (
-    <div className="container">
-      <div className="d-flex row columns">
+    <div className="container d-flex">
+      <div className="d-flex row d-flex justify-content-between">
         {users.map((user) => (
-          <div className="card-deck text-center mb-4 p-3">
-            <div className="card card-width">
-              <img src={user.picture.medium} alt={user.name.first} />
+          <div className="card-deck card-container text-center mb-4 py-3">
+            <div className="card card-details">
+              <img className="p-3 picture" src={user.picture.medium} alt={user.name.first} />
               <h1> {user.name.title}</h1>
               <p> {user.name.first}</p>
               <p> {user.name.last}</p>
