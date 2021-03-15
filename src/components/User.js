@@ -6,7 +6,7 @@ const Users = ({ fileteredUsers, loading, infos, users }) => {
   }
   return (
     <div className="container">
-      <div className="row d-flex">
+      <div className="row d-flex justify-content-center">
         {fileteredUsers.map((user) => (
           <div className="card-deck card-container text-center mb-4 py-3">
             <div className="card card-details">

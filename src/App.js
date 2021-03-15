@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Users from "./components/Users";
+import User from "./components/User";
 // import Pagination from './components/Pagination'
 import Header from "./components/Header";
-import Input from "./components/Input";
+// import Input from "./components/Input";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -73,7 +73,7 @@ const App = () => {
           placeholder="Search by seed"
         ></input>
 
-        <Users
+        <User
           infos={infos}
           loading={loading}
           fileteredUsers={fileteredUsers}
