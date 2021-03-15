@@ -66,7 +66,7 @@ const App = () => {
         {/* {fileteredUsers.map((user, index) => (
         <Users2 key={index} {...user} />
       ))} */}
-  {/* bylo  users={currentUsers} */}
+
      <Users infos={infos} loading={loading} fileteredUsers={fileteredUsers} users={currentUsers} />
       <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
       <Input text2={text2} />
