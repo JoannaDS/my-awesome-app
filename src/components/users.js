@@ -5,9 +5,9 @@ const Users = ({ fileteredUsers, loading, infos, users }) => {
     <h2>Loading...</h2>;
   }
   return (
-    <div className="container d-flex">
-      <div className="d-flex row d-flex justify-content-between">
-        {users.map((user) => (
+    <div className="container">
+      <div className="row d-flex">
+        {fileteredUsers.map((user) => (
           <div className="card-deck card-container text-center mb-4 py-3">
             <div className="card card-details">
               <img className="p-3 picture" src={user.picture.medium} alt={user.name.first} />

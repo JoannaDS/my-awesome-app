@@ -1,29 +1,25 @@
-import { useEffect, useState} from 'react';
-import axios from 'axios';
-import Users from './components/Users';
-import Pagination from './components/Pagination'
-import Header from './components/Header'
-import Input from './components/Input'
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Users from "./components/Users";
+// import Pagination from './components/Pagination'
+import Header from "./components/Header";
+import Input from "./components/Input";
 
 const App = () => {
-
   const [users, setUsers] = useState([]);
   const [infos, setInfos] = useState({});
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage] = useState(25);
-  const [text,setText]= useState('')
-  const [text2,setText2]= useState('');
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [usersPerPage] = useState(25);
+  const [text, setText] = useState("");
 
-  const [fileteredUsers, setFilteredUsers]=useState([])
+  const [fileteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
-
       setLoading(true);
       const response = await axios.get(
-        'https://randomuser.me/api/?results=200'
+        "https://randomuser.me/api/?page=5&results=25&inc=name,picture,location"
       );
 
       setUsers(response.data.results);
@@ -34,62 +30,59 @@ const App = () => {
     fetchUsers();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     setFilteredUsers(
-      users.filter((user)=> user.name.first.toLowerCase().includes(text.toLowerCase()))
-    )
+      users.filter((user) =>
+        user.name.first.toLowerCase().includes(text.toLowerCase())
+      )
+    );
+  }, [text, users]);
 
-  }, [text, users])
+  useEffect(() => {
+    const filteredInfos = Object.entries(infos)
+    // setFilteredUsers(
+    //   users.filter((user) =>
+    //     user.name.first.toLowerCase().includes(text.toLowerCase())
+    //   )
+    
+    console.log(filteredInfos[0])
+    
+  }, [text, infos]);
 
-  //Here we are getting current users
-  const indexOfLastUsers = currentPage * usersPerPage;
-  const indexOfFirstUsers = indexOfLastUsers - usersPerPage;
-  const currentUsers = users.slice(indexOfFirstUsers, indexOfLastUsers);
+  // //Here we are getting current users
+  // const indexOfLastUsers = currentPage * usersPerPage;
+  // const indexOfFirstUsers = indexOfLastUsers - usersPerPage;
+  // const currentUsers = users.slice(indexOfFirstUsers, indexOfLastUsers);
 
-  //Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  // //Change page
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-  console.log(users);
-  console.log(infos);
-  console.log(text2)
-
+  // console.log(users);
+  // console.log(infos);
 
   return (
     <div className="">
       <Header />
       <div className="container">
         <p>{text}</p>
-        <p>{text2}</p>
 
-        <input className="searchUser__input" value={text} onChange={(e)=> setText(e.target.value)}  placeholder="Search by seed" ></input>
-          
-        {/* {fileteredUsers.map((user, index) => (
-        <Users2 key={index} {...user} />
-      ))} */}
+        <input
+          className="searchUser__input"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Search by seed"
+        ></input>
 
-     <Users infos={infos} loading={loading} fileteredUsers={fileteredUsers} users={currentUsers} />
-      <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
-      <Input text2={text2} />
+        <Users
+          infos={infos}
+          loading={loading}
+          fileteredUsers={fileteredUsers}
+        />
+        {/* <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} /> */}
+        {/* <Input text={text} /> */}
+      </div>
     </div>
-    </div>
-    
   );
 };
-
-// const Users2 = (props) => {
-//   const {name} =props
-
-//   return (
-//    <div>
- 
-//               <p> {name.title}</p>
-//               <p> {name.first}</p>
-//               <p> {name.last}</p>
-            
-//               </div>
-//   )
-
-// }
-
 
 export default App;
