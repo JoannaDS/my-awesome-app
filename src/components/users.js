@@ -11,7 +11,7 @@ const Users = ({ users, loading, infos }) => {
           <div className="card-deck card-container text-center mb-4 py-3">
             <div className="card card-details">
               <img className="p-3 picture" src={user.picture.medium} alt={user.name.first} />
-              <h1> {user.name.title}</h1>
+              <p> {user.name.title}</p>
               <p> {user.name.first}</p>
               <p> {user.name.last}</p>
               <p>{infos.seed}</p>
