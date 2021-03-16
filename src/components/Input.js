@@ -1,12 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 
-const Input = () => {
-    const [text,setText]= useState('')
-
+const Input = ({text,setText}) => {
     
 
+
+
     return(
-        <input className="searchUser__input" value={text} onChange={(e)=> setText(e.target.value)}  placeholder="Search by seed" ></input>
+       
+        <input
+          className="searchUser__input"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Search by seed"
+        ></input>
   
     )}
 

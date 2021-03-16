@@ -1,7 +1,13 @@
-  
-import React from 'react';
+import React from "react";
 
-const Pagination = ({ usersPerPage, totalUsers, paginate }) => {
+const Pagination = ({
+  usersPerPage,
+  totalUsers,
+  paginate,
+  nextPage,
+  prevPage,
+  seed,
+}) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalUsers / usersPerPage); i++) {
@@ -9,23 +15,33 @@ const Pagination = ({ usersPerPage, totalUsers, paginate }) => {
   }
 
   return (
-    <nav>
-      <ul className='pagination justify-content-end'>
-      <li class="page-item ">
-   
-    </li>
-        {pageNumbers.map(number => (
-            <div>
-          <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} href='!#' className='page-link'>
-              {number}
-            </a>
-          </li>
-          </div>
-        ))}
+    
+      <nav>
+      <ul className="pagination justify-content-end">
+        <li className="page-item ">
+         <a className="page-link" href="#!" onClick={() => prevPage()}>Previous</a>
+        </li>
+
+        {pageNumbers.map((number,index) => (
+         <div>
+            <li key={index} className="page-item">
+              <a
+                onClick={() => paginate(number)}
+                href="!#"
+                className="page-link"
+              >
+                {number}
+              </a>
+            </li>
+            </div>
+         
         
+        ))}
+           <li class="page-item ">
+           <a className="page-link" href="#!" onClick={() => nextPage()}>Next</a>
+            </li>
       </ul>
-    </nav>
+      </nav>
   );
 };
 
