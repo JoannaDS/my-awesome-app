@@ -5,6 +5,7 @@ import Pagination from "./components/Pagination";
 import Header from "./components/Header";
 import Input from "./components/Input";
 
+
 const App = () => {
   const [users, setUsers] = useState([]);
   const [infos, setInfos] = useState({});
@@ -27,6 +28,18 @@ const App = () => {
     fetchUsers();
   }, []);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setInfos(
+  //       Object.keys(infos).filter((user) =>
+  //         user.seed.toLowerCase().includes(text.toLowerCase())
+  //       )
+  //     );
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, [text, infos]);
+
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setUsers(
@@ -36,7 +49,9 @@ const App = () => {
       );
     }, 1000);
     return () => clearTimeout(timer);
-  }, [text, users]);
+  }, [text, users])
+
+
 
   // useEffect(() => {
   //   const filteredInfos = Object.entries(infos);
