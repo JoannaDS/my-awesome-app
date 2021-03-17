@@ -6,6 +6,8 @@ const Pagination = ({
   paginate,
   nextPage,
   prevPage,
+  firstPage,
+  lastPage,
 }) => {
   const pageNumbers = [];
 
@@ -17,11 +19,15 @@ const Pagination = ({
     <nav className="pagination__style">
       <ul className="pagination justify-content-end">
         <li className="page-item ">
+          <a className="page-link" href="#!" onClick={() => firstPage()}>
+            {"<<"}
+          </a>
+        </li>
+        <li className="page-item ">
           <a className="page-link" href="#!" onClick={() => prevPage()}>
             Previous
           </a>
         </li>
-
         {pageNumbers.map((number) => (
           <div>
             <li key={number.id} className="page-item">
@@ -38,6 +44,11 @@ const Pagination = ({
         <li className="page-item ">
           <a className="page-link" href="#!" onClick={() => nextPage()}>
             Next
+          </a>
+        </li>
+        <li className="page-item ">
+          <a className="page-link" href="#!" onClick={() => lastPage()}>
+            {">>"}
           </a>
         </li>
       </ul>

@@ -54,12 +54,16 @@ const App = () => {
   const indexOfLastUsers = currentPage * usersPerPage;
   const indexOfFirstUsers = indexOfLastUsers - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUsers, indexOfLastUsers);
+  const maxPage = Math.ceil(users.length / usersPerPage);
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const nextPage = () => setCurrentPage(currentPage + 1);
-
-  const prevPage = () => setCurrentPage(currentPage - 1);
+  const nextPage = () =>
+    setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage));
+  const prevPage = () =>
+    setCurrentPage((currentPage) => Math.max(currentPage - 1, 1));
+  const firstPage = () => setCurrentPage(1);
+  const lastPage = () => setCurrentPage(users.length / usersPerPage);
 
   console.log("users", users);
   console.log("infos", infos);
@@ -76,6 +80,8 @@ const App = () => {
           paginate={paginate}
           nextPage={nextPage}
           prevPage={prevPage}
+          firstPage={firstPage}
+          lastPage={lastPage}
         />
       </div>
     </div>
