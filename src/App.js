@@ -13,14 +13,11 @@ const App = () => {
   const [usersPerPage] = useState(25);
   const [text, setText] = useState("");
 
-  const [fileteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
-      const response = await axios.get(
-        "https://randomuser.me/api/results=100&inc=name,picture,location,"
-      );
+      const response = await axios.get("https://randomuser.me/api/?results=50");
 
       setUsers(response.data.results);
       setLoading(false);
@@ -32,7 +29,7 @@ const App = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFilteredUsers(
+      setUsers(
         users.filter((user) =>
           user.name.first.toLowerCase().includes(text.toLowerCase())
         )
@@ -41,18 +38,17 @@ const App = () => {
     return () => clearTimeout(timer);
   }, [text, users]);
 
-  useEffect(() => {
-    const filteredInfos = Object.entries(infos);
-   
-    // setFilteredUsers(
-    //   users.filter((user) =>
-    //     user.name.first.toLowerCase().includes(text.toLowerCase())
-    //   )
-    // filteredInfos[0][1].toLowerCase().includes(text.toLowerCase())
-    console.log('fileteredinfos',filteredInfos[0])
-    
-  
-  }, [text, infos]);
+  // useEffect(() => {
+  //   const filteredInfos = Object.entries(infos);
+
+  //   // setFilteredUsers(
+  //   //   users.filter((user) =>
+  //   //     user.name.first.toLowerCase().includes(text.toLowerCase())
+  //   //   )
+  //   // filteredInfos[0][1].toLowerCase().includes(text.toLowerCase())
+  //   console.log('fileteredinfos',filteredInfos[0])
+
+  // }, [text, infos]);
 
   //Here we are getting current users
   const indexOfLastUsers = currentPage * usersPerPage;
@@ -65,8 +61,8 @@ const App = () => {
 
   const prevPage = () => setCurrentPage(currentPage - 1);
 
-  console.log('users',users);
-  console.log('infos',infos);
+  console.log("users", users);
+  console.log("infos", infos);
 
   return (
     <div className="">
@@ -76,18 +72,15 @@ const App = () => {
         <Users
           infos={infos}
           loading={loading}
-          fileteredUsers={fileteredUsers}
-          currentUsers={currentUsers}
-         
+          users={currentUsers}
           
         />
         <Pagination
           usersPerPage={usersPerPage}
-          totalUsers={fileteredUsers.length}
+          totalUsers={users.length}
           paginate={paginate}
           nextPage={nextPage}
           prevPage={prevPage}
-        
         />
       </div>
     </div>

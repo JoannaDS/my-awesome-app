@@ -1,13 +1,13 @@
 import React from "react";
 
-const Users = ({ fileteredUsers, loading, infos}) => {
+const Users = ({ users, loading, infos}) => {
   if (loading) {
     <h2>Loading...</h2>;
   }
   return (
     <div className="container">
      <div className="row d-flex">
-      {fileteredUsers.map((user,i) => (
+      {users.map((user,i) => (
         <div key={i} className="card-deck card-container text-center mb-4 py-3">
           <div className="card card-details">
             <img
@@ -16,7 +16,6 @@ const Users = ({ fileteredUsers, loading, infos}) => {
               alt={user.name.first}
             />
             <p>
-              {" "}
               {user.name.title} {user.name.first} {user.name.last}
             </p>
             <p> {user.location.country}</p>
@@ -25,7 +24,7 @@ const Users = ({ fileteredUsers, loading, infos}) => {
         </div>
       ))}
     </div>
-    </div>
+     </div>
   );
 };
 
