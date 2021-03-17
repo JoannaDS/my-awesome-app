@@ -14,16 +14,17 @@ const Pagination = ({
   }
 
   return (
-    
-      <nav>
+    <nav className="pagination__style">
       <ul className="pagination justify-content-end">
         <li className="page-item ">
-         <a className="page-link" href="#!" onClick={() => prevPage()}>Previous</a>
+          <a className="page-link" href="#!" onClick={() => prevPage()}>
+            Previous
+          </a>
         </li>
 
-        {pageNumbers.map((number,index) => (
-         <div>
-            <li key={index} className="page-item">
+        {pageNumbers.map((number) => (
+          <div>
+            <li key={number.id} className="page-item">
               <a
                 onClick={() => paginate(number)}
                 href="!#"
@@ -32,15 +33,15 @@ const Pagination = ({
                 {number}
               </a>
             </li>
-            </div>
-         
-        
+          </div>
         ))}
-           <li class="page-item ">
-           <a className="page-link" href="#!" onClick={() => nextPage()}>Next</a>
-            </li>
+        <li className="page-item ">
+          <a className="page-link" href="#!" onClick={() => nextPage()}>
+            Next
+          </a>
+        </li>
       </ul>
-      </nav>
+    </nav>
   );
 };
 
