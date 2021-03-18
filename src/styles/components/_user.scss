@@ -1,35 +1,35 @@
 .card-details {
   color: lighten($light-violet, 20%);
-  background: darken($dark-violet, 5%);
-
-
+  background: darken($dark-violet, 8%);
+  padding: 5px;
+  h1 {
+    font-size: $m-size;
+  }
   p {
     font-size: 1.2rem;
-    padding-top: 10px
+    padding-top: 10px;
   }
 }
-.card-container{
+.card-container {
   width: 18%;
-  margin: 0 1%;
- 
+  margin: 0 0.5%;
+  border-radius: 1rem;
 }
 
 .picture {
-  border-bottom: 1px solid turquoise;
+  border-bottom: 1px solid $primary-color;
 }
 
-@media (max-width:900px) {
-  .card-container{
+@media (max-width: 900px) {
+  .card-container {
     width: 22%;
     margin: 0 1%;
-    ;
   }
 }
 
-@media (max-width:600px) {
-  .card-container{
+@media (max-width: 600px) {
+  .card-container {
     width: 40%;
     margin: 0 1%;
-    
   }
 }

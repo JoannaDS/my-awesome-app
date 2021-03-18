@@ -16,17 +16,13 @@ const App = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
-      try {
-        const response = await axios.get(
-          `https://randomuser.me/api/?results=100&seed=${text}`
-        );
+      const response = await axios.get(
+        `https://randomuser.me/api/?results=100&seed=${text}`
+      );
 
-        setUsers(response.data.results);
-        setLoading(false);
-        setInfos(response.data.info);
-      } catch (error) {
-        console.log(error.response.data.error);
-      }
+      setUsers(response.data.results);
+      setLoading(false);
+      setInfos(response.data.info);
     };
 
     fetchUsers();
@@ -47,8 +43,11 @@ const App = () => {
   const firstPage = () => setCurrentPage(1);
   const lastPage = () => setCurrentPage(users.length / usersPerPage);
 
+  console.log("users", users);
+  console.log("infos", infos);
+
   return (
-    <div>
+    <div className="">
       <Header />
       <div className="container">
         <Input text={text} setText={setText} />
