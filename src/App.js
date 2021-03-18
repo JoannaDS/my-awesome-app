@@ -16,39 +16,21 @@ const App = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
-      const response = await axios.get(
-        `https://randomuser.me/api/?results=100&seed=${text}`
-      );
+      try {
+        const response = await axios.get(
+          `https://randomuser.me/api/?results=100&seed=${text}`
+        );
 
-      setUsers(response.data.results);
-      setLoading(false);
-      setInfos(response.data.info);
+        setUsers(response.data.results);
+        setLoading(false);
+        setInfos(response.data.info);
+      } catch (error) {
+        console.log(error.response.data.error);
+      }
     };
 
     fetchUsers();
   }, [text]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setInfos(
-  //       Object.keys(infos).filter((seed) =>
-  //         seed.toLowerCase().includes(text.toLowerCase())
-  //       )
-  //     );
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, [text, infos]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setUsers(
-  //       users.filter((user) =>
-  //         user.name.first.toLowerCase().includes(text.toLowerCase())
-  //       )
-  //     );
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, [text, users])
 
   //Here we are getting current users
   const indexOfLastUsers = currentPage * usersPerPage;
@@ -65,11 +47,8 @@ const App = () => {
   const firstPage = () => setCurrentPage(1);
   const lastPage = () => setCurrentPage(users.length / usersPerPage);
 
-  console.log("users", users);
-  console.log("infos", infos);
-
   return (
-    <div className="">
+    <div>
       <Header />
       <div className="container">
         <Input text={text} setText={setText} />

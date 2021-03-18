@@ -34,7 +34,7 @@ const Pagination = ({
               <a
                 onClick={() => paginate(number)}
                 href="!#"
-                className="page-link"
+                className="pagination__style page-link "
               >
                 {number}
               </a>

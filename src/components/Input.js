@@ -6,7 +6,7 @@ const Input = ({ text, setText }) => {
     <div>
       <DebounceInput
         minLength={0}
-        debounceTimeout={300}
+        debounceTimeout={500}
         placeholder="Search by seed"
         onChange={(e) => setText(e.target.value)}
         className="searchUser__input"
