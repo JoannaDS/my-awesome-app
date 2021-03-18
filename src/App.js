@@ -43,9 +43,6 @@ const App = () => {
   const firstPage = () => setCurrentPage(1);
   const lastPage = () => setCurrentPage(users.length / usersPerPage);
 
-  console.log("users", users);
-  console.log("infos", infos);
-
   return (
     <div className="">
       <Header />
