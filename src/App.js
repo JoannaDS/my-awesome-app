@@ -44,7 +44,7 @@ const App = () => {
   const lastPage = () => setCurrentPage(users.length / usersPerPage);
 
   return (
-    <div className="">
+    <div>
       <Header />
       <div className="container">
         <Input text={text} setText={setText} />

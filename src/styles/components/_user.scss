@@ -10,26 +10,31 @@
     padding-top: 10px;
   }
 }
-.card-container {
-  width: 18%;
-  margin: 0 0.5%;
+.card.card-details {
   border-radius: 1rem;
+
+  height: 100%;
 }
 
 .picture {
   border-bottom: 1px solid $primary-color;
 }
 
-@media (max-width: 900px) {
-  .card-container {
-    width: 22%;
-    margin: 0 1%;
+.card-wrapper {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+@media (min-width: 768px) {
+  .card-wrapper {
+    flex: 0 0 33.3%;
+    max-width: 33.3%;
   }
 }
 
-@media (max-width: 600px) {
-  .card-container {
-    width: 40%;
-    margin: 0 1%;
+@media (min-width: 992px) {
+  .card-wrapper {
+    flex: 0 0 20%;
+    max-width: 20%;
   }
 }
