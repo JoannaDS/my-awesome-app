@@ -1,22 +1,22 @@
 .pagination__style {
   background-color: $dark-violet;
-  color: $primary-color;
+  color: turquoise;
 }
 .pagination__style > li > a {
   background-color: $dark-violet;
-  color: $primary-color;
+  color: turquoise;
 }
 
 .pagination > li > a {
   background-color: $dark-violet;
-  color: $primary-color;
+  color: turquoise;
 }
 
 .pagination__style > li > a:focus,
 .pagination__style > li > a:hover,
 .pagination__style > li > span:focus,
 .pagination__style > li > span:hover {
-  color: $primary-color;
+  color: turquoise;
   background-color: lighten($dark-violet, 10%);
   border-color: #ddd;
 }
@@ -25,12 +25,12 @@
 .pagination > li > a:hover,
 .pagination > li > span:focus,
 .pagination > li > span:hover {
-  color: $primary-color;
+  color: turquoise;
   background-color: lighten($dark-violet, 10%);
   border-color: #ddd;
 }
 
 .page-link:hover {
   background-color: lighten($dark-violet, 10%);
-  color: $primary-color;
+  color: turquoise;
 }

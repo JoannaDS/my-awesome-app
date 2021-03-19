@@ -1,8 +1,8 @@
 .header {
-  background: $primary-color;
+  background: darken($dark-violet, 10%);
   margin-bottom: $m-size;
   padding: $l-size 0;
-  color: white;
+  color: turquoise;
 }
 
 .header__title {
