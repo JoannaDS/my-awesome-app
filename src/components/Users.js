@@ -5,7 +5,7 @@ const Users = ({ users, loading, infos }) => {
     <h2>Loading...</h2>;
   }
   return (
-    <div className="d-flex flex-wrap mt-5 mx-n3 ">
+    <div className="d-flex flex-wrap my-5 mx-n3 ">
       {users.map((user) => (
         <div key={user.login.uuid} className="card-wrapper text-center p-3">
           <div className="card card-details p-3">
