@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Users from './components/Users';
-import Pagination from './components/Pagination';
-import Header from './components/Header';
-import Input from './components/Input';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Users from "./components/Users";
+import Pagination from "./components/Pagination";
+import Header from "./components/Header";
+import Input from "./components/Input";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -11,7 +11,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(25);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -48,7 +48,7 @@ const App = () => {
       <Header />
       <div className="container">
         <Input text={text} setText={setText} />
-        <Users loading={loading} users={currentUsers} />
+        <Users infos={infos} loading={loading} users={currentUsers} />
         <Pagination
           usersPerPage={usersPerPage}
           totalUsers={users.length}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const Users = ({ users, loading }) => {
+const Users = ({ users, loading, infos }) => {
   if (loading) {
     <h2>Loading...</h2>;
   }
@@ -18,6 +18,7 @@ const Users = ({ users, loading }) => {
               {user.name.title} {user.name.first} {user.name.last}
             </h3>
             <p className="mt-auto mb-0"> {user.location.country}</p>
+            {/* <p>{infos.seed}</p> */}
           </div>
         </div>
       ))}
