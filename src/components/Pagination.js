@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Pagination = ({
   usersPerPage,
@@ -19,12 +19,26 @@ const Pagination = ({
     <nav className="pagination__style">
       <ul className="pagination justify-content-end">
         <li className="page-item ">
-          <a className="page-link" href="#!" onClick={() => firstPage()}>
-            {"<<"}
+          <a
+            className="page-link"
+            href="#!"
+            onClick={(e) => {
+              firstPage();
+              e.preventDefault();
+            }}
+          >
+            {'<<'}
           </a>
         </li>
         <li className="page-item ">
-          <a className="page-link" href="#!" onClick={() => prevPage()}>
+          <a
+            className="page-link"
+            href="#!"
+            onClick={(e) => {
+              prevPage();
+              e.preventDefault();
+            }}
+          >
             Previous
           </a>
         </li>
@@ -32,8 +46,11 @@ const Pagination = ({
           <div>
             <li key={number.id} className="page-item">
               <a
-                onClick={() => paginate(number)}
                 href="!#"
+                onClick={(e) => {
+                  paginate(number);
+                  e.preventDefault();
+                }}
                 className="page-link pagination__style"
               >
                 {number}
@@ -42,13 +59,27 @@ const Pagination = ({
           </div>
         ))}
         <li className="page-item ">
-          <a className="page-link" href="#!" onClick={() => nextPage()}>
+          <a
+            className="page-link"
+            href="#!"
+            onClick={(e) => {
+              nextPage();
+              e.preventDefault();
+            }}
+          >
             Next
           </a>
         </li>
         <li className="page-item ">
-          <a className="page-link" href="#!" onClick={() => lastPage()}>
-            {">>"}
+          <a
+            className="page-link"
+            href="#!"
+            onClick={(e) => {
+              lastPage();
+              e.preventDefault();
+            }}
+          >
+            {'>>'}
           </a>
         </li>
       </ul>
